@@ -1,8 +1,7 @@
 class Fraccion{
-
 private:
-    int numerador;
-    int denominador;
+    int num;
+    int denom;
 
 public:
     Fraccion();
