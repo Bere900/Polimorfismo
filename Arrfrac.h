@@ -2,7 +2,7 @@
 
 class Arrfrac{
 private: 
-    Fraccion * arr;
+    Fraccion * arre;
     int size;
     int sizeMem;
     //void setSize() //cuando modifiquemos el ejercicio usando la clase vector
