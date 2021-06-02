@@ -2,9 +2,9 @@
 #include <iostream>
 using namespace std;
 
-//Constructor sin argumentos
+//Se utiliza un constructor sin argumentos
 Arrfrac::Arrfrac(){
-    arr = new Fraccion[1];
+    arre = new Fraccion[1];
     size = 1;
     sizeMem = 1;
 }
@@ -12,13 +12,13 @@ Arrfrac::Arrfrac(){
 //Constructor con tamaño especifico
 Arrfrac::Arrfrac(int s){
     size = s;
-    arr = new Fraccion[s];
+    arre = new Fraccion[s];
     sizeMem = s;
 }
 
 //Constructor con arreglo especifico
-Arrfrac::Arrfrac(int s, Fraccion * arrf){
-    arr = arrf;
+Arrfrac::Arrfrac(int s, Fraccion * arref){
+    arre = arref;
     size = s;
     sizeMem = s;
 }
@@ -30,12 +30,12 @@ int Arrfrac::getSize(){
 
 //Obtener Fraccion por indice
 Fraccion Arrfrac::getFraccion(int i){
-    return arr[i];
+    return arre[i];
 }
 
 //Cambiar una fraccion por indice
 void Arrfrac::setFraccion(int i, Fraccion f){
-    arr[i] = f;
+    arre[i] = f;
 }
 
 //Suma de fracciones (no modifica el objeto actual)
@@ -76,7 +76,7 @@ void Arrfrac::sumaInPlace(Arrfrac inaArrfrac){
     if(size == inaArrfrac.getSize()){
         for (int i=0; i<size; i++){
             //Realiza la suma y la guarda en el objeto que llama este metodo
-            arr[i] = arr[i].suma(inaArrfrac.getFraccion(i));  
+            arre[i] = arre[i].suma(inaArrfrac.getFraccion(i));  
         }
     }else{
         cout << "Los arreglos no tienen el mismo numero de elemetos" << endl;
@@ -90,7 +90,7 @@ void Arrfrac::agregarFraccion(Fraccion f){
         Fraccion * newArr = new Fraccion[size*2];
         //Se copia el arreglo en el nuevo arreglo
         for (int i=0; i<size; i++){
-            newArr[i] = arr[i];
+            newArr[i] = arre[i];
         }
         newArr[size+1] = f;
         arr = newArr;
@@ -103,8 +103,8 @@ void Arrfrac::agregarFraccion(Fraccion f){
     }
 }
 void Arrfrac::eliminarFraccion(){ //ultimo elemento
-    arr[size].setNumerador(0);
-    arr[size].setDenominador(1);
+    arre[size].setNumerador(0);
+    arre[size].setDenominador(1);
     size--;
 } 
 void Arrfrac::imprimir(bool showSize){
